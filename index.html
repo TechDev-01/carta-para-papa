@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feliz Día de las Madres</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@300;400;600&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+            color: #333;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .container {
+            max-width: 800px;
+            padding: 2rem;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 2rem;
+            animation: fadeIn 2s ease;
+        }
+        
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3.5rem;
+            color: #e83e8c;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            color: #666;
+            font-weight: 300;
+        }
+        
+        .card {
+            background-color: white;
+            border-radius: 1.5rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            margin: 2rem 0;
+            position: relative;
+            animation: slideUp 1s ease-out;
+        }
+        
+        .card-content {
+            padding: 2.5rem;
+            text-align: center;
+        }
+        
+        .message {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+        
+        .highlight {
+            color: #e83e8c;
+            font-weight: 600;
+        }
+        
+        .hearts {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        .heart {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23e83e8c' width='24px' height='24px'%3E%3Cpath d='M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z'/%3E%3C/svg%3E") no-repeat center center;
+            background-size: contain;
+            opacity: 0.2;
+            animation: float 15s infinite linear;
+        }
+        
+        .flowers {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 80px;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%23f8d7da' fill-opacity='0.5' d='M0,224L60,213.3C120,203,240,181,360,181.3C480,181,600,203,720,213.3C840,224,960,224,1080,208C1200,192,1320,160,1380,144L1440,128L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z'%3E%3C/path%3E%3C/svg%3E") repeat-x bottom center;
+            background-size: cover;
+            z-index: -1;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #e83e8c 0%, #ff6b6b 100%);
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(232, 62, 140, 0.3);
+            margin-top: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(232, 62, 140, 0.4);
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 2rem;
+            color: #888;
+            font-size: 0.9rem;
+        }
+        
+        .footer p {
+            margin: 0.5rem 0;
+        }
+        .icon{
+            width: 1.5rem;
+            height: 1.5rem;
+            margin-left: 0.5rem;
+            vertical-align: middle;
+            fill: #e83e8c;
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.3;
+            }
+            100% {
+                transform: translateY(-100vh) rotate(720deg);
+                opacity: 0;
+            }
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        
+        @keyframes slideUp {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        
+        .decoration {
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 150px;
+            height: 150px;
+            background: linear-gradient(135deg, #e83e8c 0%, #ff6b6b 100%);
+            border-radius: 50%;
+            opacity: 0.1;
+            z-index: -1;
+        }
+        
+        .date {
+            background-color: #fff4f6;  
+            border-radius: 50px;
+            padding: 0.5rem 1.5rem;
+            display: inline-block;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #e83e8c;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 8px rgba(232, 62, 140, 0.2);
+        }
+        
+        /* Media Queries */
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            h1 {
+                font-size: 2.8rem;
+            }
+            
+            .card-content {
+                padding: 2rem 1.5rem;
+            }
+            
+            .message {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Feliz Día de la Madre</h1>
+            <p class="subtitle">Un tributo a quien lo da todo por amor</p>
+        </header>
+        
+        <div class="card">
+            <div class="hearts">
+                <!-- Hearts will be added with JavaScript -->
+            </div>
+            <div class="decoration"></div>
+            <div class="card-content">
+                <div class="date">Para vos, mamá <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Zm0-108q96-86 158-147.5t98-107q36-45.5 50-81t14-70.5q0-60-40-100t-100-40q-47 0-87 26.5T518-680h-76q-15-41-55-67.5T300-774q-60 0-100 40t-40 100q0 35 14 70.5t50 81q36 45.5 98 107T480-228Zm0-273Z"/></svg></div>
+                <div class="message">
+                    <p>Para vos, que siempre has estado a mi lado con <span class="highlight">esfuerzo</span> paciencia y un amor incondicional.</p>
+                    <p>Para la mejor madre del mundo, que, sin importar como, siempre me ayudas.</p>
+                    <p>Soy inmensamente afortunado por tenerte como madre, se que no siempre lo expreso, pero quiero que sepas que te <span class="highlight">AMO,</span> no hay palabras que alcancen para describir lo mucho que significas para mi.</p>
+                    <p>A esa madre que siempre escucha y ama: <span class="highlight">¡Eres la mejor mamá del mundo!</span></p>
+                    <p>Porque una madre es el primer amor que conocemos y el único amor que nunca se olvida.</p>
+                    <p><strong>Con cariño:</strong> Steban</p>
+                    <p><strong>Para:</strong> La mejor <span class="highlight">madre</span> de todas</p>
+                </div>
+            </div>
+            <div class="flowers"></div>
+        </div>
+        
+        <div class="footer">
+            <p>Algún dia iremos de vacaciones pagas, lo prometo.    </p>
+        </div>
+    </div>
+    
+    <script>
+        // Add floating hearts animation
+        const hearts = document.querySelector('.hearts');
+        for (let i = 0; i < 15; i++) {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.style.left = Math.random() * 100 + '%';
+            heart.style.top = Math.random() * 100 + '%';
+            heart.style.animationDuration = 15 + Math.random() * 10 + 's';
+            heart.style.animationDelay = Math.random() * 5 + 's';
+            heart.style.opacity = Math.random() * 0.3;
+            heart.style.transform = 'scale(' + (Math.random() + 0.5) + ')';
+            hearts.appendChild(heart);
+        }
+        
+        // Button interaction
+        document.querySelector('.cta-button').addEventListener('click', function(e) {
+            e.preventDefault();
+            alert('¡Gracias por querer dedicar un mensaje! Esta función estaría disponible en un sitio web completo.');
+        });
+    </script>
+</body>
+</html>
